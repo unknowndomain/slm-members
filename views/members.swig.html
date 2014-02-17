@@ -1,0 +1,27 @@
+{% extends '../../../views/base.swig.html' %}
+{% block content %}
+<h2>Active Member List</h2>
+<p>We have a legal requirement to publish a list of active members. This page is only viewable if you are a member.</p>
+<table class="table table-striped">
+    <caption>List of active members</caption>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Joined</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for member in members %}
+        <tr>
+            <td><img src="http://www.gravatar.com/avatar/{{ member.email|gravatar_hash }}" /> {{ member.name }}</td>
+            <td>{{ member.joined|age }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="2">Total active members: {{ members_count }}</td>
+        </tr>
+    </tfoot>
+</table>
+{% endblock %}
