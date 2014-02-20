@@ -3,8 +3,8 @@ var express = require('express'),
     swig = require("swig");
 
 module.exports = {
-    "title": "Frontpage",
-    "name": "frontpage",
+    "title": "Members",
+    "name": "members",
     "app": function membership (config, db, site) {
         var app = express();
         _.extend(app.locals, site.locals);
