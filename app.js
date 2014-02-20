@@ -23,16 +23,23 @@ module.exports = {
                 }
                 else {
                     // get all members
-                    var all_members = res.locals.User.all({ where: {
+                    res.locals.User.all({ where: {
                         disabled: false,
                         approved: true
-                    }});
-                    
-                    var active_members = _.filter(all_members, function (member) {
-                        member.is_active();
+                    }}, function (err, all_members) {
+                        if (!err) {
+                            var active_members = _.filter(all_members, function (member) {
+                                member.is_active();
+                            });
+                            res.render("members",{members: active_members, members_count: active_members.length});
+                        }
+                        else {
+                            res.locals.flash("danger", "Database Error.", "Appologese but member list cannot be retrieved at present.");
+                            res.render("members",{members: [], members_count: 0});
+                        }
                     });
+
                     
-                    res.render("members",{members: active_members, members_count: active_members.length});
                 }
             }
             else {
