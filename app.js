@@ -16,8 +16,9 @@ module.exports = {
         app.get('/', function index (req, res) {
             var user = res.locals.user;
             if (user) {
-                if (req.session.email && (!user.provided_details())) {
-                    res.locals.flash("warning", "Details Required.", "Please enter your personal details to continue.");
+                // check to see if user is an active member: is paying, has not had their account disabled, has appropriate membership information etc.
+                if (user.is_active()) {
+                    res.locals.flash("warning", "Insufficent Membership.", "Unfortunately your account does not have rights to this page at the moment.");
                     res.redirect("/membership");
                 }
                 else {
