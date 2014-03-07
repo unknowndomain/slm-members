@@ -17,7 +17,7 @@ module.exports = {
             var user = res.locals.user;
             if (user) {
                 // check to see if user is an active member: is paying, has not had their account disabled, has appropriate membership information etc.
-                if (user.is_active()) {
+                if (!user.is_active()) {
                     res.locals.flash("warning", "Insufficent Membership.", "Unfortunately your account does not have rights to this page at the moment.");
                     res.redirect("/membership");
                 }
