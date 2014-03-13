@@ -13,7 +13,7 @@
     <tbody>
         {% for member in members %}
         <tr>
-            <td><img src="http://www.gravatar.com/avatar/{{ member.email|gravatar_hash }}" /> {{ member.name }}</td>
+            <td><img src="http://www.gravatar.com/avatar/{{ member.email|gravatar_hash }}" title="Avatar for {{ member.name }}" width="32" /> {{ member.name }}</td>
             <td>{{ member.joined|age }}</td>
         </tr>
         {% endfor %}

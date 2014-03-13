@@ -29,7 +29,7 @@ module.exports = {
                     }}, function (err, all_members) {
                         if (!err) {
                             var active_members = _.filter(all_members, function (member) {
-                                member.is_active();
+                                return member.is_active();
                             });
                             res.render("members",{members: active_members, members_count: active_members.length});
                         }
