@@ -18,7 +18,7 @@ module.exports = {
             if (user) {
                 // check to see if user is an active member: is paying, has not had their account disabled, has appropriate membership information etc.
                 if (!user.is_active()) {
-                    res.locals.flash("warning", "Insufficent Membership.", "Unfortunately your account does not have rights to this page at the moment.");
+                    res.locals.flash("warning", "Insufficient Membership.", "Unfortunately your account does not have rights to this page at the moment.");
                     res.redirect("/membership");
                 }
                 else {
@@ -34,7 +34,7 @@ module.exports = {
                             res.render("members",{members: active_members, members_count: active_members.length});
                         }
                         else {
-                            res.locals.flash("danger", "Database Error.", "Appologese but member list cannot be retrieved at present.");
+                            res.locals.flash("danger", "Database Error.", "Apologies but member list cannot be retrieved at present.");
                             res.render("members",{members: [], members_count: 0});
                         }
                     });
