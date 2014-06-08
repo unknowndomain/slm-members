@@ -1,12 +1,10 @@
 # Displays list of active members of the South London Makerspace app
 A module for `slm-site`.
 
-Displays the frontpage for the main site.
-
 # License
 
     South London Makerspace Members List
-    Copyright (C) 2014  Matt Copperwaite
+    Copyright (C) 2014 Matt Copperwaite
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
